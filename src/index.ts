@@ -25,13 +25,17 @@ app.get("/resize", async (req, res) => {
   if (fs.existsSync(thumpPath)) {
     res.sendFile(thumpPath);
   } else {
-    await sharp(filePath)
-      .resize({
-        width: parseInt(width),
-        height: parseInt(height),
-      })
-      .toFile(thumpPath);
-    res.sendFile(thumpPath);
+    try {
+      await sharp(filePath)
+        .resize({
+          width: parseInt(width),
+          height: parseInt(height),
+        })
+        .toFile(thumpPath);
+      res.sendFile(thumpPath);
+    } catch (err) {
+      console.log(err);
+    }
   }
 });
 
