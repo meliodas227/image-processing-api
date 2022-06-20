@@ -19,7 +19,7 @@ describe("is image exist", () => {
                 path.resolve('./'),
                 "thump-images",
                 "icelandwaterfall_550_550.jpg"
-              ),()=>{}
+              ),()=>{console.log('deleted image before test')}
         )
     }
     await request.get("/resize?name=icelandwaterfall&height=550&width=550");
@@ -49,7 +49,7 @@ describe("Testing responses", () => {
                 path.resolve('./'),
                 "thump-images",
                 "icelandwaterfall_550_550.jpg"
-              ),()=>{}
+              ),()=>{console.log('deleted image before testing')}
         )
     }
     const response = await request.get(
