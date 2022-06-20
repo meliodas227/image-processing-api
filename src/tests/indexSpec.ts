@@ -7,6 +7,25 @@ const request = supertest(app);
 
 describe("is image exist", () => {
   it("is image saved in thump-images", async () => {
+    if(fs.existsSync(
+        path.join(
+            __dirname,
+            "..",
+            "..",
+            "thump-images",
+            "icelandwaterfall_550_550.jpg"
+          )
+    )){
+        fs.unlink(
+            path.join(
+                __dirname,
+                "..",
+                "..",
+                "thump-images",
+                "icelandwaterfall_550_550.jpg"
+              ),()=>{}
+        )
+    }
     await request.get("/resize?name=icelandwaterfall&height=550&width=550");
     expect(
       fs.existsSync(
@@ -24,6 +43,25 @@ describe("is image exist", () => {
 
 describe("Testing responses", () => {
   it("getting api endpoint", async () => {
+    if(fs.existsSync(
+        path.join(
+            __dirname,
+            "..",
+            "..",
+            "thump-images",
+            "icelandwaterfall_550_550.jpg"
+          )
+    )){
+        fs.unlink(
+            path.join(
+                __dirname,
+                "..",
+                "..",
+                "thump-images",
+                "icelandwaterfall_550_550.jpg"
+              ),()=>{}
+        )
+    }
     const response = await request.get(
       "/resize?name=icelandwaterfall&height=550&width=550"
     );
