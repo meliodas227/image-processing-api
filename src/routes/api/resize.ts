@@ -1,11 +1,11 @@
 import { Router } from "express";
 import path from "path";
-import sharp from "sharp";
 import fs from "fs";
+import resize from "../../utils/utils";
 
 const resize_routes = Router();
 
-resize_routes.get("/", async (req, res):Promise<any> => {
+resize_routes.get("/", async (req, res): Promise<unknown> => {
   const width = parseInt(req.query.width as string),
     height = parseInt(req.query.height as string);
   const imageName = req.query.name + "_" + height + "_" + width;
@@ -35,12 +35,7 @@ resize_routes.get("/", async (req, res):Promise<any> => {
     res.sendFile(thumpPath);
   } else {
     try {
-      await sharp(filePath)
-        .resize({
-          width: width,
-          height: height,
-        })
-        .toFile(thumpPath);
+      await resize(filePath, width, height, thumpPath);
       res.sendFile(thumpPath);
     } catch (err) {
       console.log(err);

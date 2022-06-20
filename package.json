@@ -6,6 +6,7 @@
   "scripts": {
     "start": "nodemon src/index.ts",
     "build": "tsc && node dist/index.js",
+    "prettier":"prettier src/**/*.ts",
     "lint": "eslint src/**/*.ts",
     "lint:f": "eslint src/**/*.ts --fix",
     "test": "tsc && jasmine"
