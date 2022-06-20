@@ -6,8 +6,8 @@ import fs from "fs";
 const resize_routes = Router();
 
 resize_routes.get("/", async (req, res) => {
-  const width = req.query.width as unknown as number,
-    height = req.query.height as unknown as number;
+  const width = parseInt(req.query.width as string),
+    height = parseInt(req.query.height as string);
   const imageName = req.query.name + "_" + height + "_" + width;
   const filePath = path.join(
     path.resolve("./"),

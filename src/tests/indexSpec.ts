@@ -59,7 +59,7 @@ describe("Testing responses", () => {
   });
   it("bad request if width or height not number", async () => {
     const response = await request.get(
-      "/resize?name=icelandwaterfall&height=550abc&width=550"
+      "/resize?name=icelandwaterfall&height=abc&width=550"
     );
     expect(response.status).toBe(400);
   });
