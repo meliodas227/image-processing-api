@@ -9,18 +9,14 @@ describe("is image exist", () => {
   it("is image saved in thump-images", async () => {
     if(fs.existsSync(
         path.join(
-            __dirname,
-            "..",
-            "..",
+            path.resolve('./'),
             "thump-images",
             "icelandwaterfall_550_550.jpg"
           )
     )){
         fs.unlink(
             path.join(
-                __dirname,
-                "..",
-                "..",
+                path.resolve('./'),
                 "thump-images",
                 "icelandwaterfall_550_550.jpg"
               ),()=>{}
@@ -30,9 +26,7 @@ describe("is image exist", () => {
     expect(
       fs.existsSync(
         path.join(
-          __dirname,
-          "..",
-          "..",
+            path.resolve('./'),
           "thump-images",
           "icelandwaterfall_550_550.jpg"
         )
@@ -45,18 +39,14 @@ describe("Testing responses", () => {
   it("getting api endpoint", async () => {
     if(fs.existsSync(
         path.join(
-            __dirname,
-            "..",
-            "..",
+            path.resolve('./'),
             "thump-images",
             "icelandwaterfall_550_550.jpg"
           )
     )){
         fs.unlink(
             path.join(
-                __dirname,
-                "..",
-                "..",
+                path.resolve('./'),
                 "thump-images",
                 "icelandwaterfall_550_550.jpg"
               ),()=>{}
