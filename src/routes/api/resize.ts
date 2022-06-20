@@ -1,11 +1,11 @@
-import { Router } from "express";
+import { Router,Request,Response } from "express";
 import path from "path";
 import fs from "fs";
 import resize from "../../utils/utils";
 
 const resize_routes = Router();
 
-resize_routes.get("/", async (req, res): Promise<unknown> => {
+resize_routes.get("/", async (req:Request, res:Response): Promise<unknown> => {
   const width = parseInt(req.query.width as string),
     height = parseInt(req.query.height as string);
   const imageName = req.query.name + "_" + height + "_" + width;
